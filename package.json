@@ -1,0 +1,15 @@
+{
+  "name": "master",
+  "version": "1.0.0",
+  "scripts": {
+    "setup-project" : "npm i && cd otentikasi && npm i && cd perusahaanA && npm i && cd perusahaanB && npm i && cd absensi && npm i",
+    "start:otentikasi": "cd otentikasi && npm run dev",
+    "start:perusahaanA": "cd perusahaanA && npm run dev",
+    "start:perusahaanB": "cd perusahaanB && npm run dev",
+    "start:absensi": "cd absensi && npm run dev",
+    "start:all": "concurrently \"npm run start:otentikasi\" \"npm run start:perusahaanA\" \"npm run start:perusahaanB\" \"npm run start:absensi\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
