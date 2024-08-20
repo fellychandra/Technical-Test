@@ -1,3 +1,4 @@
+import 'express-async-errors';
 import express from "express";
 import * as dotenv from 'dotenv'
 import mongoose from 'mongoose';
@@ -5,6 +6,11 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 
 
+// routes
+import authRouter from './routes/authRouter.js';
+
+
+dotenv.config()
 const app = express()
 
 app.use(helmet());
@@ -19,9 +25,16 @@ app.get('/api/v1/test', (req, res) => {
     res.json({ message: "test route Autentikasi" })
 })
 
-const port = process.env.PORT || 5101;
+app.use('/api/v1/auth', authRouter);
+
+
+app.use('*', (req, res) => {
+    res.status(404).json({ msg: 'not found' });
+});
+
+const port = 5101;
 try {
-    // await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL);
     app.listen(port, () => {
         console.log(`server running on PORT ${port}....`);
     });

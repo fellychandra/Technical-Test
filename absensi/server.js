@@ -19,7 +19,7 @@ app.get('/api/v1/test', (req, res) => {
     res.json({ message: "test route Absensi" })
 })
 
-const port = process.env.PORT || 5102;
+const port = 5102;
 try {
     // await mongoose.connect(process.env.MONGO_URL);
     app.listen(port, () => {

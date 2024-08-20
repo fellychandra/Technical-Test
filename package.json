@@ -7,7 +7,8 @@
     "start:perusahaanA": "cd perusahaanA && npm run dev",
     "start:perusahaanB": "cd perusahaanB && npm run dev",
     "start:absensi": "cd absensi && npm run dev",
-    "start:all": "concurrently \"npm run start:otentikasi\" \"npm run start:perusahaanA\" \"npm run start:perusahaanB\" \"npm run start:absensi\""
+    "start:all": "concurrently \"npm run start:otentikasi\" \"npm run start:perusahaanA\" \"npm run start:perusahaanB\" \"npm run start:absensi\"",
+    "add-dep": "concurrently \"cd otentikasi && npm install npm i nodemailer\" \"cd perusahaanA && npm install npm i nodemailer\" \"cd perusahaanB && npm install npm i nodemailer\" \"cd absensi && npm install npm i nodemailer\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
