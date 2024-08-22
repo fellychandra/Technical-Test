@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
-
+import { StatusCodes } from 'http-status-codes';
 
 // routes
 import authRouter from './routes/authRouter.js';
@@ -29,7 +29,7 @@ app.use('/api/v1/auth', authRouter);
 
 
 app.use('*', (req, res) => {
-    res.status(404).json({ msg: 'not found' });
+    res.status(StatusCodes.NOT_FOUND).json({ msg: 'not found' });
 });
 
 const port = 5101;

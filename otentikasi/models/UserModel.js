@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
-    name: String,
     username: {
         type: String,
         required: true,
@@ -18,7 +17,10 @@ const UserSchema = new mongoose.Schema({
     },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
-
+    role: {
+        type: String,
+        enum: ['Superuser', 'Karyawan'],
+    },
 },
     { timestamps: true }
 );

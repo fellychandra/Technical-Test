@@ -8,10 +8,13 @@ import { sendResetEmail } from '../utils/sendResetEmail.js';
 
 export const register = async (req, res) => {
     try {
+        const isFirtsAccount = await User.countDocuments() === 0
+        req.body.role = isFirtsAccount ? 'Superuser' : 'Karyawan';
+
         const hashedPassword = await hashPassword(req.body.password);
         req.body.password = hashedPassword;
         const user = await User.create(req.body);
-        res.status(StatusCodes.CREATED).json({ msg: "user created" });
+        res.status(StatusCodes.CREATED).json({ message: "User berhasil dibuat!", user });
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
@@ -30,18 +33,19 @@ export const login = async (req, res) => {
 
         const token = createJWT({
             userId: user._id,
-            role: user.role,
+            nik: user.nik,
+            role: user.role
         })
 
-        const oneDay = 1000 * 60 * 60 * 24;
+        // kalau mau dibuat kedalam cookie
+        // const oneDay = 1000 * 60 * 60 * 24;
+        // res.cookie('token', token, {
+        //     httpOnly: true,
+        //     expires: new Date(Date.now() + oneDay),
+        //     secure: process.env.NODE_ENV === 'development',
+        // });
 
-        res.cookie('token', token, {
-            httpOnly: true,
-            expires: new Date(Date.now() + oneDay),
-            secure: process.env.NODE_ENV === 'development',
-        });
-
-        res.status(StatusCodes.OK).json({ msg: 'user logged in', token })
+        res.status(StatusCodes.OK).json({ message: 'user logged in', token })
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
@@ -53,31 +57,33 @@ export const logout = (req, res) => {
             httpOnly: true,
             expires: new Date(Date.now()),
         });
-        res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
+        res.status(StatusCodes.OK).json({ message: 'user logged out!' });
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
 };
 
 export const verify = async (req, res) => {
-    console.log(req.body);
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1] || req.body.token;
 
     if (!token) {
-        throw new UnauthenticatedError('invalid credentials')
+        return res.status(StatusCodes.UNAUTHORIZED).json({ msg: 'Invalid credentials' });
     }
+
     try {
         const decoded = verifyJWT(token);
-        res.status(StatusCodes.OK).json({ valid: true, userId: decoded.userId });
+
+        res.status(StatusCodes.OK).json({ valid: true, userId: decoded.userId, nik: decoded.nik, role: decoded.role });
     } catch (err) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ valid: false, message: err.message });
     }
 };
 
+
 export const requestResetPassword = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         // return
 
         const { email } = req.body;

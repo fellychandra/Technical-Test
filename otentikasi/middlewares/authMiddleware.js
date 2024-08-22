@@ -3,7 +3,7 @@ import { verifyJWT } from "../utils/tokenUtils.js";
 
 
 export const authenticateUser = async (req, res, next) => {
-    const { token } = req.cookies;
+    const { token } = req.cookies || req.header('Authorization').replace('Bearer ', '');
     if (!token) {
         throw new UnauthenticatedError('authentication invalid');
     }
@@ -14,5 +14,14 @@ export const authenticateUser = async (req, res, next) => {
         next();
     } catch (error) {
 
+    }
+}
+
+export const authorizedPermissions = (...roles) => {
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            throw new UnauthorizedError('Unauthorized to access this route')
+        }
+        next();
     }
 }
