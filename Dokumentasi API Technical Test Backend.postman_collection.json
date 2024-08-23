@@ -1,0 +1,4403 @@
+{
+	"info": {
+		"_postman_id": "1cc6d997-358f-4488-9fad-81ee24a03e90",
+		"name": "Dokumentasi API Technical Test Backend",
+		"description": "Disini merupakan dokumentasi untuk mengakses ketiga service dari sistem ini. Dibuat 3 service, Perusahaan A, Perusahaan B, dan Absensi.\n\nDisini juga menggunakan service otentikasi terpisah dari setiap service.\n\nDalam pembuatan akun pertama kali merupakan super user yang dapat membuat akun karyawan pada setiap perusahaan.\n\nUntuk mengelola dapat menggunakan role super user ini atau kita dapat membuat akun baru dengan role HR pada setiap service perusahaan.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33940806"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "DELETE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4MTlkNTNmYzI0YmI4MzZhYWJmNTUiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0Mzg5ODUxLCJleHAiOjE3MjQ0NzYyNTF9.ZWrgft3RMIno6fTiiTdrowZCpUCiGrHIcorX-raDLzk"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{authservice}}auth/66c89bc6a03578a81de61141",
+						"description": "Untuk menghapus akun pada otentikasi"
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5101/api/v1/auth/66c89bc6a03578a81de61141"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "220"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dc-fxkkzENrKAL8OXvijRtAaM5KCN4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 14:25:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"User deleted\",\n    \"User\": {\n        \"_id\": \"66c89bc6a03578a81de61141\",\n        \"username\": \"fchndr\",\n        \"email\": \"fellychndr@gmail.com\",\n        \"role\": \"Superuser\",\n        \"createdAt\": \"2024-08-23T14:25:10.660Z\",\n        \"updatedAt\": \"2024-08-23T14:25:10.660Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "REGISTER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fellychndr@gmail.com\",\r\n    \"username\": \"fchndr\",\r\n    \"password\": \"12345678\",\r\n    \"userId\":\"\",\r\n    \"role\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{authservice}}auth/register",
+						"description": "Untuk membuat akun pada otentikasi"
+					},
+					"response": [
+						{
+							"name": "REGISTER",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"fellychndr@gmail.com\",\r\n    \"username\": \"fchndr\",\r\n    \"password\": \"12345678\",\r\n    \"userId\":\"\",\r\n    \"role\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5101/api/v1/auth/register"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "233"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e9-zQ9bT45E4+58oksQTCtKgpvKWJw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 14:25:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User berhasil dibuat!\",\n    \"user\": {\n        \"username\": \"fchndr\",\n        \"email\": \"fellychndr@gmail.com\",\n        \"role\": \"Superuser\",\n        \"_id\": \"66c89bc6a03578a81de61141\",\n        \"createdAt\": \"2024-08-23T14:25:10.660Z\",\n        \"updatedAt\": \"2024-08-23T14:25:10.660Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"karyawan1a@gmail.com\",\r\n  \"password\": \"tampanbanget\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{authservice}}auth/login",
+						"description": "Untuk masuk/mengakses pada service harus login terlebih dahulu \\]"
+					},
+					"response": [
+						{
+							"name": "LOGIN",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"hra@gmail.com\",\r\n  \"password\": \"tampanbanget\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5101/api/v1/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "231"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e7-x4fh+4oYeVyDyEU6FtsZ27E/G3Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 14:17:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user logged in\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4N2Q4ZThmNjNlOWRiNThhYzc2ZWUiLCJyb2xlIjoiSFIiLCJpYXQiOjE3MjQ0MjI2MzgsImV4cCI6MTcyNDUwOTAzOH0.W33nCWA_pd0u-J6wZ7RlM-4kgh6I_R5oeuSXeP5J1fk\"\n}"
+						}
+					]
+				},
+				{
+					"name": "REQUEST RESET PASSWORD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fellychndr@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{authservice}}auth/request-reset-password",
+						"description": "Dikarenakan role super user yang dapat membuat akun, jadi akun yang ditetapkan diawal itu adalah tampanbanget, nah disini diharapkan pengguna atau karyawan dapat melakukan reset password dengan melakukan request terlebih dahulu. Nanti sistem akan mengirimkan email untuk pin melakukan reset password"
+					},
+					"response": [
+						{
+							"name": "REQUEST RESET PASSWORD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"fellychndr@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5101/api/v1/auth/request-reset-password"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-3n0tgWiCsNb56Z3rZc/p1kHZ7As\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 14:27:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password reset email dikirim! Silakan Cek Email Anda!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "RESET PASSWORD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\": \"294018\",\r\n    \"password\": \"123123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{authservice}}auth/reset-password",
+						"description": "nah setelah mendapatkan pin reset password isi pin dan password baru"
+					},
+					"response": [
+						{
+							"name": "RESET PASSWORD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pin\": \"294018\",\r\n    \"password\": \"123123123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5101/api/v1/auth/reset-password"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25-0e4m86kU0wNIY9/uj1wa+mew8GQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 14:29:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password has been reset\"\n}"
+						}
+					]
+				},
+				{
+					"name": "VERIFY",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM0YTU2N2NkZTBlMjUyNjkwMTliYWUiLCJpYXQiOjE3MjQxNjQ3OTgsImV4cCI6MTcyNDI1MTE5OH0.2vLZQKeTfmNbzOAY3bcoZvUVhLI5CTMcOAHq0v5LM10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{authservice}}auth/verify",
+						"description": "ini digunakan untuk melakukan validasi token yang digunakan oleh setiap service apakah valid atau tidak"
+					},
+					"response": [
+						{
+							"name": "VERIFY",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM0YTU2N2NkZTBlMjUyNjkwMTliYWUiLCJpYXQiOjE3MjQxNjQ3OTgsImV4cCI6MTcyNDI1MTE5OH0.2vLZQKeTfmNbzOAY3bcoZvUVhLI5CTMcOAHq0v5LM10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5101/api/v1/auth/verify"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-cveBxwM9c0cIrv/4hFIalK5MdfI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Aug 2024 14:30:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"valid\": true,\n    \"userId\": \"66c89c1ca03578a81de61147\",\n    \"role\": \"Superuser\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Ini merupakan service otentikasi untuk semua service perusahaan"
+		},
+		{
+			"name": "PERUSAHAAN A",
+			"item": [
+				{
+					"name": "ADMIN / SUPER USER / HR / ATASAN Copy",
+					"item": [
+						{
+							"name": "MANAGE KARYAWAN",
+							"item": [
+								{
+									"name": "GET ALL KARYAWAN",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{perusahaanAservice}}karyawan?sort=a-z",
+											"host": [
+												"{{perusahaanAservice}}karyawan"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "a-z"
+												}
+											]
+										},
+										"description": "menampilkan seluruh karyawan pada service perusahaan A"
+									},
+									"response": [
+										{
+											"name": "GET ALL KARYAWAN",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:5103/api/v1/karyawan?sort=a-z",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "5103",
+													"path": [
+														"api",
+														"v1",
+														"karyawan"
+													],
+													"query": [
+														{
+															"key": "sort",
+															"value": "a-z"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "403"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"193-MMvOsgihffjddcJvLdj+r2Dyr84\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:31:41 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"totalKaryawans\": 1,\n    \"numOfPages\": 1,\n    \"currentPage\": 1,\n    \"karyawans\": [\n        {\n            \"_id\": \"66c89d4105ac061699c9ddcf\",\n            \"nik\": \"12\",\n            \"nip\": \"12\",\n            \"name\": \"KARYAWAN 1 PERUSAHAAN A\",\n            \"tempatLahir\": \"Muntok\",\n            \"tanggalLahir\": \"1990-08-25T00:00:00.000Z\",\n            \"noHp\": \"087791351611\",\n            \"userId\": \"66c89d41a03578a81de61151\",\n            \"createdBy\": \"66c87d8e8f63e9db58ac76ee\",\n            \"createdAt\": \"2024-08-23T14:31:29.711Z\",\n            \"updatedAt\": \"2024-08-23T14:31:29.711Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "CREATE KARYAWAN",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nik\": \"12\",\r\n    \"nip\": \"12\",\r\n    \"name\": \"KARYAWAN 1 PERUSAHAAN A\",\r\n    \"tempatLahir\": \"Muntok\",\r\n    \"tanggalLahir\": \"1990-08-25\",\r\n    \"jenisKelamin\": \"Laki-laki\",\r\n    \"noHp\": \"087791351611\",\r\n    \"username\": \"karyawana1\",\r\n    \"role\" : \"Karyawan\",\r\n    \"email\": \"karyawan1a@gmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanAservice}}karyawan",
+										"description": "HR dapat melakukan pendaftaran karyawan baru yang mana akan memnbentuk akun juga untuk melakukan otentikasi karyawan"
+									},
+									"response": [
+										{
+											"name": "CREATE KARYAWAN",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"nik\": \"12\",\r\n    \"nip\": \"12\",\r\n    \"name\": \"KARYAWAN 1 PERUSAHAAN A\",\r\n    \"tempatLahir\": \"Muntok\",\r\n    \"tanggalLahir\": \"1990-08-25\",\r\n    \"jenisKelamin\": \"Laki-laki\",\r\n    \"noHp\": \"087791351611\",\r\n    \"username\": \"karyawana1\",\r\n    \"role\" : \"Karyawan\",\r\n    \"email\": \"karyawan1a@gmail.com\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:5103/api/v1/karyawan"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "30"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1e-pce90iehVDZWxbXX7yyhtKAU9ig\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:31:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"karyawan created\"\n}"
+										}
+									]
+								},
+								{
+									"name": "GET KARYAWAN",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{perusahaanAservice}}karyawan/66c89d4105ac061699c9ddcf",
+										"description": "Menampilkan data karywan berdasarkan id karyawan"
+									},
+									"response": [
+										{
+											"name": "GET KARYAWAN",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}karyawan/66c89d4105ac061699c9ddcf"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "350"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"15e-dfMk/6QDxR/Yeg+njoqWi2aB4p4\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:31:56 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"karyawan\": {\n        \"_id\": \"66c89d4105ac061699c9ddcf\",\n        \"nik\": \"12\",\n        \"nip\": \"12\",\n        \"name\": \"KARYAWAN 1 PERUSAHAAN A\",\n        \"tempatLahir\": \"Muntok\",\n        \"tanggalLahir\": \"1990-08-25T00:00:00.000Z\",\n        \"noHp\": \"087791351611\",\n        \"userId\": \"66c89d41a03578a81de61151\",\n        \"createdBy\": \"66c87d8e8f63e9db58ac76ee\",\n        \"createdAt\": \"2024-08-23T14:31:29.711Z\",\n        \"updatedAt\": \"2024-08-23T14:31:29.711Z\",\n        \"__v\": 0\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "UPDATE KARYAWAN",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nik\": \"1111\",\r\n    \"nip\": \"1111\",\r\n    \"name\": \"Aakuuuu\",\r\n    \"tempatLahir\": \"Jabar\",\r\n    \"tanggalLahir\": \"1990-09-22\",\r\n    \"jenisKelamin\": \"Laki-laki\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanAservice}}karyawan/66c89d4105ac061699c9ddcf",
+										"description": "Mengubah data karywan berdasarkan id karyawan"
+									},
+									"response": [
+										{
+											"name": "UPDATE KARYAWAN",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"nik\": \"1111\",\r\n    \"nip\": \"1111\",\r\n    \"name\": \"Aakuuuu\",\r\n    \"tempatLahir\": \"Jabar\",\r\n    \"tanggalLahir\": \"1990-09-22\",\r\n    \"jenisKelamin\": \"Laki-laki\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}karyawan/66c89d4105ac061699c9ddcf"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "390"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"186-JkeRZf3mF9PpOoLynS+tlMWl9ew\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:32:18 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"msg\": \"karyawan modified\",\n    \"karyawan\": {\n        \"_id\": \"66c89d4105ac061699c9ddcf\",\n        \"nik\": \"1111\",\n        \"nip\": \"1111\",\n        \"name\": \"Aakuuuu\",\n        \"tempatLahir\": \"Jabar\",\n        \"tanggalLahir\": \"1990-09-22T00:00:00.000Z\",\n        \"noHp\": \"087791351611\",\n        \"userId\": \"66c89d41a03578a81de61151\",\n        \"createdBy\": \"66c87d8e8f63e9db58ac76ee\",\n        \"createdAt\": \"2024-08-23T14:31:29.711Z\",\n        \"updatedAt\": \"2024-08-23T14:32:18.779Z\",\n        \"__v\": 0,\n        \"jenisKelamin\": \"Laki-laki\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "DELETE KARYAWAN",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{perusahaanAservice}}karyawan/66c89d4105ac061699c9ddcf",
+										"description": "Menghapus data karywan berdasarkan id karyawan"
+									},
+									"response": [
+										{
+											"name": "DELETE KARYAWAN",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": "{{perusahaanAservice}}karyawan/66c89d4105ac061699c9ddcf"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "389"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"185-rkc3Ex3Xfd9pyNtkYtRyyVC/oIs\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:32:37 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"msg\": \"karyawan deleted\",\n    \"karyawan\": {\n        \"_id\": \"66c89d4105ac061699c9ddcf\",\n        \"nik\": \"1111\",\n        \"nip\": \"1111\",\n        \"name\": \"Aakuuuu\",\n        \"tempatLahir\": \"Jabar\",\n        \"tanggalLahir\": \"1990-09-22T00:00:00.000Z\",\n        \"noHp\": \"087791351611\",\n        \"userId\": \"66c89d41a03578a81de61151\",\n        \"createdBy\": \"66c87d8e8f63e9db58ac76ee\",\n        \"createdAt\": \"2024-08-23T14:31:29.711Z\",\n        \"updatedAt\": \"2024-08-23T14:32:18.779Z\",\n        \"__v\": 0,\n        \"jenisKelamin\": \"Laki-laki\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"description": "HR dapat melakukan manajemen terhadap karyawan pada service perusahaan"
+						},
+						{
+							"name": "MANAGE KEHADIRAN",
+							"item": [
+								{
+									"name": "APPROVAL CUTI",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"approved\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanAservice}}kehadiran/cuti/approval/66c89f0c1789b88fdaaf8724",
+										"description": "Melakukan persetujuan cuti karyawan"
+									},
+									"response": [
+										{
+											"name": "APPROVAL CUTI",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\": \"approved\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}kehadiran/cuti/approval/66c89f0c1789b88fdaaf8724"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "411"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"19b-4gbZwDb10f+IW+sW8RMHKosh1Ls\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:43:37 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"msg\": \"cuti modified\",\n    \"cuti\": {\n        \"_id\": \"66c89f0c1789b88fdaaf8724\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n        \"alasan\": \"a1\",\n        \"status\": \"approved\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:39:08.757Z\",\n        \"updatedAt\": \"2024-08-23T14:43:37.751Z\",\n        \"__v\": 0\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "APPROVAL IZIN",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"approved\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanAservice}}kehadiran/izin/approval/66c89e9c1789b88fdaaf8719",
+										"description": "melakukan persetujuan izin karyawan"
+									},
+									"response": [
+										{
+											"name": "APPROVAL IZIN",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\": \"approved\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}kehadiran/izin/approval/66c89e9c1789b88fdaaf8719"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "424"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1a8-ZAGtLRhVG8IRTlzgYeuQOhKd7sU\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:44:23 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"msg\": \"izin modified\",\n    \"izin\": {\n        \"_id\": \"66c89e9c1789b88fdaaf8719\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-08-09T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-08-10T00:00:00.000Z\",\n        \"alasan\": \"hari raya besar\",\n        \"status\": \"approved\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:37:16.411Z\",\n        \"updatedAt\": \"2024-08-23T14:44:23.467Z\",\n        \"__v\": 0\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "GET ALL CUTI KARYAWAN",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{perusahaanAservice}}kehadiran/cuti/approval",
+										"description": "mendapatkan data seluruh cuti karyawan"
+									},
+									"response": [
+										{
+											"name": "GET ALL CUTI KARYAWAN",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/cuti/approval"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1150"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"47e-c4HXilAUQ2WBIsynaUiQcRPLu8U\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:43:20 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"cuti\": [\n        {\n            \"_id\": \"66c89eed1789b88fdaaf8720\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:38:37.376Z\",\n            \"updatedAt\": \"2024-08-23T14:38:37.376Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66c89f0c1789b88fdaaf8724\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:39:08.757Z\",\n            \"updatedAt\": \"2024-08-23T14:39:08.757Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66c89f691789b88fdaaf8728\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:40:41.303Z\",\n            \"updatedAt\": \"2024-08-23T14:40:41.303Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "GET ALL IZIN KARYAWAN",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{perusahaanAservice}}kehadiran/izin/approval",
+										"description": "mendapatkan data seluruh izin karyawan"
+									},
+									"response": [
+										{
+											"name": "GET ALL IZIN KARYAWAN",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/izin/approval"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1163"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"48b-YNctfsqfAqb+mVdgebP+0C24vgg\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 23 Aug 2024 14:44:08 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"izin\": [\n        {\n            \"_id\": \"66c89e9c1789b88fdaaf8719\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-08-09T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-08-10T00:00:00.000Z\",\n            \"alasan\": \"hari raya besar\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:37:16.411Z\",\n            \"updatedAt\": \"2024-08-23T14:37:44.549Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66c89f8e1789b88fdaaf872d\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-08-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-08-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:41:18.862Z\",\n            \"updatedAt\": \"2024-08-23T14:41:18.862Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66c89fa51789b88fdaaf8733\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-08-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-08-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:41:41.188Z\",\n            \"updatedAt\": \"2024-08-23T14:41:41.188Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+										}
+									]
+								}
+							],
+							"description": "HR/superuser dapat melakuakn manajemen kehadiran karyawan"
+						},
+						{
+							"name": "LAPORAN KEHADIRAN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pegawaiId\": \"66c89da3a03578a81de61157\",\r\n    \"perusahaan\": \"A\",\r\n    \"startDate\": \"2024-08-01\",\r\n    \"endDate\": \"2024-09-30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{perusahaanAservice}}kehadiran/laporan",
+								"description": "untuk menampilkan laporan kehadiran berdasarkan karyawan yang dipilih pake id"
+							},
+							"response": [
+								{
+									"name": "LAPORAN KEHADIRAN",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"pegawaiId\": \"66c89da3a03578a81de61157\",\r\n    \"perusahaan\": \"A\",\r\n    \"startDate\": \"2024-08-01\",\r\n    \"endDate\": \"2024-09-30\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanAservice}}kehadiran/laporan"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "541"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21d-qbYceXQ/11inorkk8QlsDbwyUvo\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 23 Aug 2024 14:44:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"jumlahTelat\": 0,\n    \"jumlahTidakMasuk\": 0,\n    \"jumlahIzin\": 3,\n    \"jumlahCuti\": {\n        \"cuti\": 3,\n        \"data\": [\n            {\n                \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n                \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n                \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n                \"status\": \"rejected\"\n            },\n            {\n                \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n                \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n                \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n                \"status\": \"approved\"\n            },\n            {\n                \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n                \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n                \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n                \"status\": \"pending\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						}
+					],
+					"description": "Ini bagian HR",
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4N2Q4ZThmNjNlOWRiNThhYzc2ZWUiLCJyb2xlIjoiSFIiLCJpYXQiOjE3MjQ0MTYwMjcsImV4cCI6MTcyNDUwMjQyN30.7ecBMpdoWO-xFEvjiZ1HHkLmjwGsNtqx4db_7cb1Jmw"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "KARYAWAN",
+					"item": [
+						{
+							"name": "KEHADIRAN",
+							"item": [
+								{
+									"name": "ABSEN",
+									"item": [
+										{
+											"name": "ABSEN KARYAWAN",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\" : \"hadir\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}kehadiran/absen",
+												"description": "melakukan absen"
+											},
+											"response": [
+												{
+													"name": "ABSEN KARYAWAN",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"status\" : \"hadir\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": "{{perusahaanAservice}}kehadiran/absen"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "28"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1c-jbbGTJA7Pcksw/J91gBwLqYCF3o\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:36:21 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"absen berhasil\"\n}"
+												}
+											]
+										},
+										{
+											"name": "GET ALL ABSEN BY KARYAWAN",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/absen",
+												"description": "menampilkan data absen per karyawan"
+											},
+											"response": [
+												{
+													"name": "GET ALL ABSEN BY KARYAWAN",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{perusahaanAservice}}kehadiran/absen"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "587"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"24b-5CT1F80YgLDwChxQ8+sNPtcup3E\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:36:59 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"absen\": [\n        {\n            \"_id\": \"66c89e7c1789b88fdaaf8713\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggal\": \"2024-08-23T12:43:07.000Z\",\n            \"status\": \"hadir\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"jam\": \"21:36:44\",\n            \"createdAt\": \"2024-08-23T14:36:44.349Z\",\n            \"updatedAt\": \"2024-08-23T14:36:44.349Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66c89e871789b88fdaaf8716\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggal\": \"2024-08-23T12:43:07.000Z\",\n            \"status\": \"hadir\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"jam\": \"21:36:55\",\n            \"createdAt\": \"2024-08-23T14:36:55.999Z\",\n            \"updatedAt\": \"2024-08-23T14:36:55.999Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+												}
+											]
+										}
+									],
+									"description": "karyawan dapat melakukan absensi"
+								},
+								{
+									"name": "IZIN",
+									"item": [
+										{
+											"name": "PENGAJUAN IZIN",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\" : \"2024-08-01\",\r\n    \"tanggalAkhir\" : \"2024-08-02\",\r\n    \"alasan\" : \"a1\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}kehadiran/izin",
+												"description": "mengajukan izin"
+											},
+											"response": [
+												{
+													"name": "PENGAJUAN IZIN",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"tanggalMulai\" : \"2024-08-01\",\r\n    \"tanggalAkhir\" : \"2024-08-02\",\r\n    \"alasan\" : \"a1\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": "{{perusahaanAservice}}kehadiran/izin"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "27"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1b-u9WmRdEQEMqJ6imYzsjSsEpW8NU\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:37:16 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Izin berhasil\"\n}"
+												}
+											]
+										},
+										{
+											"name": "EDIT PENGAJUAN IZIN",
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\": \"2024-08-09\",\r\n    \"tanggalAkhir\": \"2024-08-10\",\r\n    \"alasan\": \"hari raya besar\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}kehadiran/izin/66c89e9c1789b88fdaaf8719",
+												"description": "mengedit izin"
+											},
+											"response": [
+												{
+													"name": "EDIT PENGAJUAN IZIN",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"tanggalMulai\": \"2024-08-09\",\r\n    \"tanggalAkhir\": \"2024-08-10\",\r\n    \"alasan\": \"hari raya besar\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": "{{perusahaanAservice}}kehadiran/izin/66c89e9c1789b88fdaaf8719"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "423"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1a7-NCfdn2I0ConYlcmvSvk96OtXHjQ\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:37:44 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"msg\": \"izin modified\",\n    \"izin\": {\n        \"_id\": \"66c89e9c1789b88fdaaf8719\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-08-09T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-08-10T00:00:00.000Z\",\n        \"alasan\": \"hari raya besar\",\n        \"status\": \"pending\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:37:16.411Z\",\n        \"updatedAt\": \"2024-08-23T14:37:44.549Z\",\n        \"__v\": 0\n    }\n}"
+												}
+											]
+										},
+										{
+											"name": "GET ALL IZIN BY KARYAWAN",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/izin",
+												"description": "menampilkan seluruh data izin berdasarkan karyawan"
+											},
+											"response": [
+												{
+													"name": "GET ALL IZIN BY KARYAWAN",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{perusahaanAservice}}kehadiran/izin"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "390"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"186-Pia5ho0MVeUjeGu6fwqYeDfnLPo\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:37:31 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"izin\": [\n        {\n            \"_id\": \"66c89e9c1789b88fdaaf8719\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-08-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-08-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:37:16.411Z\",\n            \"updatedAt\": \"2024-08-23T14:37:16.411Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+												}
+											]
+										},
+										{
+											"name": "DELETE PENGAJUAN IZIN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2Y2NiZTk3NzZkZWU4NmY4YzE2ZWQiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MzgxMTIyLCJleHAiOjE3MjQ0Njc1MjJ9.iA8RrQyVkcvPo4GjelUlRh1Dgfqxmfku9eDrtn3plDo"
+													}
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/izin/66c89f901789b88fdaaf872f",
+												"description": "menghapus pengajuan izin"
+											},
+											"response": [
+												{
+													"name": "DELETE PENGAJUAN IZIN",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": "{{perusahaanAservice}}kehadiran/izin/66c89f901789b88fdaaf872f"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "409"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"199-bVpgY+8S4VEePZJt4h6uDA/hiEU\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:41:31 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"msg\": \"Izin deleted\",\n    \"izin\": {\n        \"_id\": \"66c89f901789b88fdaaf872f\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-08-01T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-08-02T00:00:00.000Z\",\n        \"alasan\": \"a1\",\n        \"status\": \"pending\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:41:20.849Z\",\n        \"updatedAt\": \"2024-08-23T14:41:20.849Z\",\n        \"__v\": 0\n    }\n}"
+												}
+											]
+										},
+										{
+											"name": "GET IZIN",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/izin/66c89e9c1789b88fdaaf8719",
+												"description": "melihat detail pengajuan izin"
+											},
+											"response": [
+												{
+													"name": "GET IZIN",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{perusahaanAservice}}kehadiran/izin/66c89e9c1789b88fdaaf8719"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "401"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"191-O/AhElWQV4xk9M3AJi7LdtpSj5o\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:38:04 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"izin\": {\n        \"_id\": \"66c89e9c1789b88fdaaf8719\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-08-09T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-08-10T00:00:00.000Z\",\n        \"alasan\": \"hari raya besar\",\n        \"status\": \"pending\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:37:16.411Z\",\n        \"updatedAt\": \"2024-08-23T14:37:44.549Z\",\n        \"__v\": 0\n    }\n}"
+												}
+											]
+										}
+									],
+									"description": "Disini karyawan dapat melakukan pengajuan izin, mengedit izin, dan menghapus yang diajukan"
+								},
+								{
+									"name": "CUTI",
+									"item": [
+										{
+											"name": "PENGAJUAN CUTI",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\" : \"2024-09-01\",\r\n    \"tanggalAkhir\" : \"2024-09-02\",\r\n    \"alasan\" : \"a1\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}kehadiran/cuti",
+												"description": "Melakukan pengajuan cuti"
+											},
+											"response": [
+												{
+													"name": "PENGAJUAN CUTI",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"tanggalMulai\" : \"2024-09-01\",\r\n    \"tanggalAkhir\" : \"2024-09-02\",\r\n    \"alasan\" : \"a1\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": "{{perusahaanAservice}}kehadiran/cuti"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "27"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1b-sqnSL5hvpuGaErfgdWoWKO0XpuM\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:38:24 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Cuti berhasil\"\n}"
+												}
+											]
+										},
+										{
+											"name": "GET ALL CUTI BY KARYAWAN",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/cuti",
+												"description": "Menampilkan seluruh pengajuan cuti berdasarkan karyawan"
+											},
+											"response": [
+												{
+													"name": "GET ALL CUTI BY KARYAWAN",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{perusahaanAservice}}kehadiran/cuti"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "770"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"302-XncE6cZTtxBpRvdlzm2IsHRWybw\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:38:43 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"cuti\": [\n        {\n            \"_id\": \"66c89ee01789b88fdaaf871e\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:38:24.758Z\",\n            \"updatedAt\": \"2024-08-23T14:38:24.758Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66c89eed1789b88fdaaf8720\",\n            \"karyawanId\": \"66c89da3a03578a81de61157\",\n            \"perusahaan\": \"A\",\n            \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n            \"tanggalMulai\": \"2024-09-01T00:00:00.000Z\",\n            \"tanggalAkhir\": \"2024-09-02T00:00:00.000Z\",\n            \"alasan\": \"a1\",\n            \"status\": \"pending\",\n            \"createdBy\": \"66c89da3a03578a81de61157\",\n            \"createdAt\": \"2024-08-23T14:38:37.376Z\",\n            \"updatedAt\": \"2024-08-23T14:38:37.376Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+												}
+											]
+										},
+										{
+											"name": "EDIT PENGAJUAN CUTI",
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\": \"2024-09-10\",\r\n    \"tanggalAkhir\": \"2024-09-11\",\r\n    \"alasan\": \"hari raya besarsssssssss\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanAservice}}kehadiran/cuti/66c89ee01789b88fdaaf871e",
+												"description": "Melakukan edit pada pengajuan cuti"
+											},
+											"response": [
+												{
+													"name": "EDIT PENGAJUAN CUTI",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"tanggalMulai\": \"2024-09-10\",\r\n    \"tanggalAkhir\": \"2024-09-11\",\r\n    \"alasan\": \"hari raya besarsssssssss\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": "{{perusahaanAservice}}kehadiran/cuti/66c89ee01789b88fdaaf871e"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "432"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1b0-Uk5/IkqL0sZi5SvhPL8PV2Ari4A\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:38:58 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"msg\": \"cuti modified\",\n    \"cuti\": {\n        \"_id\": \"66c89ee01789b88fdaaf871e\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-09-10T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-09-11T00:00:00.000Z\",\n        \"alasan\": \"hari raya besarsssssssss\",\n        \"status\": \"pending\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:38:24.758Z\",\n        \"updatedAt\": \"2024-08-23T14:38:58.776Z\",\n        \"__v\": 0\n    }\n}"
+												}
+											]
+										},
+										{
+											"name": "DELETE PENGAJUAN CUTI",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/cuti/66c89ee01789b88fdaaf871e",
+												"description": "Menghapus pengajuan cuti"
+											},
+											"response": [
+												{
+													"name": "DELETE PENGAJUAN CUTI",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": "{{perusahaanAservice}}kehadiran/cuti/66c89ee01789b88fdaaf871e"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "431"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1af-3B79Gk7o/r0hbNWlbYg7rx+Oq8k\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:39:29 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"msg\": \"Cuti deleted\",\n    \"cuti\": {\n        \"_id\": \"66c89ee01789b88fdaaf871e\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-09-10T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-09-11T00:00:00.000Z\",\n        \"alasan\": \"hari raya besarsssssssss\",\n        \"status\": \"pending\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:38:24.758Z\",\n        \"updatedAt\": \"2024-08-23T14:38:58.776Z\",\n        \"__v\": 0\n    }\n}"
+												}
+											]
+										},
+										{
+											"name": "GET CUTI",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanAservice}}kehadiran/cuti/66c89ee01789b88fdaaf871e",
+												"description": "Menampilkan detail cuti"
+											},
+											"response": [
+												{
+													"name": "GET CUTI",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{perusahaanAservice}}kehadiran/cuti/66c89ee01789b88fdaaf871e"
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "410"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"19a-/mR7j6ML1bwWGV1daodi6hWDtwc\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 23 Aug 2024 14:39:18 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"cuti\": {\n        \"_id\": \"66c89ee01789b88fdaaf871e\",\n        \"karyawanId\": \"66c89da3a03578a81de61157\",\n        \"perusahaan\": \"A\",\n        \"tanggalPengajuan\": \"2024-08-23T12:43:07.000Z\",\n        \"tanggalMulai\": \"2024-09-10T00:00:00.000Z\",\n        \"tanggalAkhir\": \"2024-09-11T00:00:00.000Z\",\n        \"alasan\": \"hari raya besarsssssssss\",\n        \"status\": \"pending\",\n        \"createdBy\": \"66c89da3a03578a81de61157\",\n        \"createdAt\": \"2024-08-23T14:38:24.758Z\",\n        \"updatedAt\": \"2024-08-23T14:38:58.776Z\",\n        \"__v\": 0\n    }\n}"
+												}
+											]
+										}
+									],
+									"description": "Disini karyawan dapat melakukan pengajuan cuti, mengedit cuti dan menghapus pengajuan cuti"
+								}
+							],
+							"description": "karyawan dapat melakukan absensi, mengajukan cuti dan juga izin",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "GET KARYAWAN",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{perusahaanAservice}}karyawan/66c89da305ac061699c9ddd7",
+								"description": "Menampilkan detail karyawan berdasarkan id nya, namun disini dapat di akses oleh role karyawanan"
+							},
+							"response": [
+								{
+									"name": "GET KARYAWAN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{perusahaanAservice}}karyawan/66c89da305ac061699c9ddd7"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "350"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"15e-untee+tuQUedBZpvCKDSj9OnznY\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 23 Aug 2024 14:34:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"karyawan\": {\n        \"_id\": \"66c89da305ac061699c9ddd7\",\n        \"nik\": \"12\",\n        \"nip\": \"12\",\n        \"name\": \"KARYAWAN 1 PERUSAHAAN A\",\n        \"tempatLahir\": \"Muntok\",\n        \"tanggalLahir\": \"1990-08-25T00:00:00.000Z\",\n        \"noHp\": \"087791351611\",\n        \"userId\": \"66c89da3a03578a81de61157\",\n        \"createdBy\": \"66c87d8e8f63e9db58ac76ee\",\n        \"createdAt\": \"2024-08-23T14:33:07.656Z\",\n        \"updatedAt\": \"2024-08-23T14:33:07.656Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "UPDATE KARYAWAN",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nik\": \"123\",\r\n    \"nip\": \"123\",\r\n    \"name\": \"KARYAWAN 1 PERUSAHAAN A\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{perusahaanAservice}}karyawan/66c89da305ac061699c9ddd7",
+								"description": "melakukan edit data karyawan berdasarkan idnya, namun disini dapat di akses oleh role karyawanan"
+							},
+							"response": [
+								{
+									"name": "UPDATE KARYAWAN",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nik\": \"123\",\r\n    \"nip\": \"123\",\r\n    \"name\": \"KARYAWAN 1 PERUSAHAAN A\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanAservice}}karyawan/66c89da305ac061699c9ddd7"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "378"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"17a-ztqfUuL2V6Jerxtp3Ryy++stjs8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 23 Aug 2024 14:34:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"karyawan modified\",\n    \"karyawan\": {\n        \"_id\": \"66c89da305ac061699c9ddd7\",\n        \"nik\": \"123\",\n        \"nip\": \"123\",\n        \"name\": \"KARYAWAN 1 PERUSAHAAN A\",\n        \"tempatLahir\": \"Muntok\",\n        \"tanggalLahir\": \"1990-08-25T00:00:00.000Z\",\n        \"noHp\": \"087791351611\",\n        \"userId\": \"66c89da3a03578a81de61157\",\n        \"createdBy\": \"66c87d8e8f63e9db58ac76ee\",\n        \"createdAt\": \"2024-08-23T14:33:07.656Z\",\n        \"updatedAt\": \"2024-08-23T14:34:30.961Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						}
+					],
+					"description": "Disini untuk karyawan dapat melakukan absensi, mengajukan cuti dan juga izin",
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4OWRhM2EwMzU3OGE4MWRlNjExNTciLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQ0MjM3MzcsImV4cCI6MTcyNDUxMDEzN30.u33tDodi3QCDAn5l6thyV_-cxWnH-ZGk1eqSywIuxMI"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"description": "Ini merupakan service perusahaan A, dalam service ini dibagi 2 bagian, bagian HR yang dapat melakukan penolakan, terima untuk untuk pengajuan izin, cuti."
+		},
+		{
+			"name": "PERUSAHAAN B",
+			"item": [
+				{
+					"name": "ADMIN / SUPER USER / HR / ATASAN",
+					"item": [
+						{
+							"name": "MANAGE KARYAWAN",
+							"item": [
+								{
+									"name": "GET ALL KARYAWAN",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{perusahaanBservice}}karyawan?sort=z-a",
+											"host": [
+												"{{perusahaanBservice}}karyawan"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "z-a"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "CREATE KARYAWAN",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nik\": \"23\",\r\n    \"nip\": \"23\",\r\n    \"name\": \"KARYAWAN 2 PERUSAHAAN B\",\r\n    \"tempatLahir\": \"Muntok\",\r\n    \"tanggalLahir\": \"1990-08-25\",\r\n    \"jenisKelamin\": \"Laki-laki\",\r\n    \"noHp\": \"087791351611\",\r\n    \"username\": \"karyawan2b\",\r\n    \"role\": \"Karyawan\",\r\n    \"email\": \"karyawan2b@gmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanBservice}}karyawan"
+									},
+									"response": []
+								},
+								{
+									"name": "GET KARYAWAN",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{perusahaanBservice}}karyawan/66c832426b26d1a403651f02"
+									},
+									"response": []
+								},
+								{
+									"name": "UPDATE KARYAWAN",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nik\": \"21\",\r\n    \"nip\": \"21\",\r\n    \"name\": \"b\",\r\n    \"tempatLahir\": \"Jabar\",\r\n    \"tanggalLahir\": \"1990-09-22\",\r\n    \"jenisKelamin\": \"Laki-laki\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanBservice}}karyawan/66c832426b26d1a403651f02"
+									},
+									"response": []
+								},
+								{
+									"name": "DELETE KARYAWAN",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2YTMzYWViMjJiMDI2ZmVjMTQzNzEiLCJuaWsiOiIiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MjkzOTczLCJleHAiOjE3MjQzODAzNzN9.9WEVIqTZr_y_sryW7Nj0V8V4SfW5-bYYFKhBtjxInmE"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": "{{perusahaanBservice}}karyawan/66c6a7dc56e6c65b586206ae"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "MANAGE KEHADIRAN",
+							"item": [
+								{
+									"name": "APPROVAL CUTI",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"rejected\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanBservice}}kehadiran/cuti/approval/66c834f79ef3fc967f5bdb71"
+									},
+									"response": []
+								},
+								{
+									"name": "APPROVAL IZIN",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"rejected\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{perusahaanBservice}}kehadiran/izin/approval/66c834809ef3fc967f5bdb64"
+									},
+									"response": []
+								},
+								{
+									"name": "GET ALL CUTI KARYAWAN",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{perusahaanBservice}}kehadiran/cuti/approval?perusahaan=B",
+											"host": [
+												"{{perusahaanBservice}}kehadiran"
+											],
+											"path": [
+												"cuti",
+												"approval"
+											],
+											"query": [
+												{
+													"key": "perusahaan",
+													"value": "B"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GET ALL IZIN KARYAWAN",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{perusahaanBservice}}kehadiran/izin/approval"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "LAPORAN KEHADIRAN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pegawaiId\": \"66c833f6f6da588b28f323cd\",\r\n    \"startDate\": \"2024-08-01\",\r\n    \"endDate\": \"2024-09-30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{perusahaanBservice}}kehadiran/laporan"
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4NjM0Yzc2YjVmMTEyZGU0MGE3MjEiLCJyb2xlIjoiSFIiLCJpYXQiOjE3MjQ0MDg2ODUsImV4cCI6MTcyNDQ5NTA4NX0.JvlFzG1phAnrS_SyVt37288ewoApocyNodIAZ0IyOwA"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "KARYAWAN",
+					"item": [
+						{
+							"name": "KEHADIRAN",
+							"item": [
+								{
+									"name": "ABSEN",
+									"item": [
+										{
+											"name": "ABSEN KARYAWAN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\" : \"telat\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanBservice}}kehadiran/absen"
+											},
+											"response": []
+										},
+										{
+											"name": "GET ALL ABSEN BY KARYAWAN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanBservice}}kehadiran/absen"
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "IZIN",
+									"item": [
+										{
+											"name": "PENGAJUAN IZIN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\" : \"2024-08-14\",\r\n    \"tanggalAkhir\" : \"2024-08-15\",\r\n    \"alasan\" : \"hari raya besar lagi\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanBservice}}kehadiran/izin"
+											},
+											"response": []
+										},
+										{
+											"name": "EDIT PENGAJUAN IZIN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\": \"2024-08-01\",\r\n    \"tanggalAkhir\": \"2024-08-04\",\r\n    \"alasan\": \"hari raya besar\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanBservice}}kehadiran/izin/66c7ff4925ec20ca405ff65f"
+											},
+											"response": []
+										},
+										{
+											"name": "GET ALL IZIN BY KARYAWAN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanBservice}}kehadiran/izin"
+											},
+											"response": []
+										},
+										{
+											"name": "DELETE PENGAJUAN IZIN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2Y2NiZTk3NzZkZWU4NmY4YzE2ZWQiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MzgxMTIyLCJleHAiOjE3MjQ0Njc1MjJ9.iA8RrQyVkcvPo4GjelUlRh1Dgfqxmfku9eDrtn3plDo"
+													}
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": "{{perusahaanBservice}}kehadiran/izin/66c7ff4925ec20ca405ff65f"
+											},
+											"response": []
+										},
+										{
+											"name": "GET IZIN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2Y2NiZTk3NzZkZWU4NmY4YzE2ZWQiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MzgxMTIyLCJleHAiOjE3MjQ0Njc1MjJ9.iA8RrQyVkcvPo4GjelUlRh1Dgfqxmfku9eDrtn3plDo"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanBservice}}kehadiran/izin/66c7feb625ec20ca405ff650"
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "CUTI",
+									"item": [
+										{
+											"name": "PENGAJUAN CUTI",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\" : \"2024-08-27\",\r\n    \"tanggalAkhir\" : \"2024-08-28\",\r\n    \"alasan\" : \"kucing sakit lagi\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanBservice}}kehadiran/cuti"
+											},
+											"response": []
+										},
+										{
+											"name": "GET ALL CUTI BY KARYAWAN",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanBservice}}kehadiran/cuti"
+											},
+											"response": []
+										},
+										{
+											"name": "EDIT PENGAJUAN CUTI",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+													}
+												},
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"tanggalMulai\": \"2024-08-01\",\r\n    \"tanggalAkhir\": \"2024-08-04\",\r\n    \"alasan\": \"hari raya besar\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{perusahaanBservice}}kehadiran/cuti/66c7ff4925ec20ca405ff65f"
+											},
+											"response": []
+										},
+										{
+											"name": "DELETE PENGAJUAN CUTI",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2Y2NiZTk3NzZkZWU4NmY4YzE2ZWQiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MzgxMTIyLCJleHAiOjE3MjQ0Njc1MjJ9.iA8RrQyVkcvPo4GjelUlRh1Dgfqxmfku9eDrtn3plDo"
+													}
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": "{{perusahaanBservice}}kehadiran/cuti/66c7ff4925ec20ca405ff65f"
+											},
+											"response": []
+										},
+										{
+											"name": "GET CUTI",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2Y2NiZTk3NzZkZWU4NmY4YzE2ZWQiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MzgxMTIyLCJleHAiOjE3MjQ0Njc1MjJ9.iA8RrQyVkcvPo4GjelUlRh1Dgfqxmfku9eDrtn3plDo"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": "{{perusahaanBservice}}kehadiran/cuti/66c7fc49e26b409140091a22"
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GET KARYAWAN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{perusahaanBservice}}karyawan/66c710b8e5e50d0b22066f31"
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE KARYAWAN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2YTMzYWViMjJiMDI2ZmVjMTQzNzEiLCJuaWsiOiIiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MjkzOTczLCJleHAiOjE3MjQzODAzNzN9.9WEVIqTZr_y_sryW7Nj0V8V4SfW5-bYYFKhBtjxInmE"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nik\": \"12345\",\r\n    \"nip\": \"12345\",\r\n    \"name\": \"AnggiChandra\",\r\n    \"tempatLahir\": \"Jabar\",\r\n    \"tanggalLahir\": \"1990-09-22\",\r\n    \"jenisKelamin\": \"Laki-laki\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{perusahaanBservice}}karyawan/66c6a5a0e0d9240f25876104"
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4NjNiNjc2YjVmMTEyZGU0MGE3MjciLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQ0MDg5NDksImV4cCI6MTcyNDQ5NTM0OX0.BxEuL-2J508k2fmPftZqwHY9g1b55d740roMyIa7TM4"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"description": "Pada service Perusahaan B ini kurang lebih sama dengan service yang ada pada service perusahaan A"
+		},
+		{
+			"name": "KEHADIRAN",
+			"item": [
+				{
+					"name": "ABSEN",
+					"item": [
+						{
+							"name": "ABSENSI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\" : \"hadir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/absen"
+							},
+							"response": []
+						},
+						{
+							"name": "GET ALL ABSENSI PER KARYAWAN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{absensiservice}}kehadiran/absen"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CUTI",
+					"item": [
+						{
+							"name": "CREATE CUTI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tanggalMulai\" : \"2024-08-31\",\r\n    \"tanggalAkhir\" : \"2024-09-01\",\r\n    \"alasan\" : \"kucing melahirkan\",\r\n    \"status\" : \"pending\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/cuti"
+							},
+							"response": []
+						},
+						{
+							"name": "GET CUTI",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/cuti/66c7e4aa8c4ab5017d0e20af"
+							},
+							"response": []
+						},
+						{
+							"name": "EDIT CUTI KARYAWAN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tanggalMulai\": \"2024-08-21\",\r\n    \"tanggalAkhir\": \"2024-08-22\",\r\n    \"alasan\": \"kucing melahirkansss\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/cuti/66c73de8d27491a35009f030"
+							},
+							"response": []
+						},
+						{
+							"name": "GET ALL CUTI PER KARYAWAN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{absensiservice}}kehadiran/cuti"
+							},
+							"response": []
+						},
+						{
+							"name": "APPROVAL CUTI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzNzQ3NTgsImV4cCI6MTcyNDQ2MTE1OH0.xDQVr80kPFEMgqO8hQrwumQWTLLo3pQ4WiiUqWQE0G8"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"approved\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/cuti/approval/66c73de8d27491a35009f030"
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE CUTI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2Y2NiZTk3NzZkZWU4NmY4YzE2ZWQiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MzgxMTIyLCJleHAiOjE3MjQ0Njc1MjJ9.iA8RrQyVkcvPo4GjelUlRh1Dgfqxmfku9eDrtn3plDo"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{absensiservice}}kehadiran/cuti/66c7e4aa8c4ab5017d0e20af"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "IZIN",
+					"item": [
+						{
+							"name": "CREATE IZIN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tanggalMulai\" : \"2024-08-23\",\r\n    \"tanggalAkhir\" : \"2024-08-22\",\r\n    \"alasan\" : \"Istirahat\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/izin"
+							},
+							"response": []
+						},
+						{
+							"name": "GET IZIN",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/izin/66c73ddcd27491a35009f02e"
+							},
+							"response": []
+						},
+						{
+							"name": "EDIT IZIN KARYAWAN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tanggalMulai\": \"2024-08-25\",\r\n    \"tanggalAkhir\": \"2024-08-25\",\r\n    \"alasan\": \"Istirahatss\",\r\n    \"status\": \"approved\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/izin/66c73ddcd27491a35009f02e"
+							},
+							"response": []
+						},
+						{
+							"name": "GET ALL IZIN PER KARYAWAN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM3MTBiODYyOTZmMTViYzFhODhjNDAiLCJyb2xlIjoiS2FyeWF3YW4iLCJpYXQiOjE3MjQzMjI5NTUsImV4cCI6MTcyNDQwOTM1NX0.5qfOur05m9AMoeds54HWvygxn-sUA__oXb0YiEQmnpI"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{absensiservice}}kehadiran/izin"
+							},
+							"response": []
+						},
+						{
+							"name": "APPROVAL IZIN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4MzM1MGY2ZGE1ODhiMjhmMzIzYzEiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0Mzk2MzgyLCJleHAiOjE3MjQ0ODI3ODJ9.dbM44JdZg16MIxcd28P4KsuhUNG8bMMgxKxItmOh638"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"rejected\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/izin/approval/66c73ddcd27491a35009f02e"
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE IZIN",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM2Y2NiZTk3NzZkZWU4NmY4YzE2ZWQiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0MzgxMTIyLCJleHAiOjE3MjQ0Njc1MjJ9.iA8RrQyVkcvPo4GjelUlRh1Dgfqxmfku9eDrtn3plDo"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{absensiservice}}kehadiran/izin/66c73ddcd27491a35009f02e"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "LAPORAN",
+					"item": [
+						{
+							"name": "LAPORAN PEGAWAI",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pegawaiId\": \"66c83d0d91b92466933897fc\",\r\n    \"perusahaan\": \"A\",\r\n    \"startDate\": \"2024-08-01\",\r\n    \"endDate\": \"2024-09-30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{absensiservice}}kehadiran/laporan"
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmM4MzM1MGY2ZGE1ODhiMjhmMzIzYzEiLCJyb2xlIjoiU3VwZXJ1c2VyIiwiaWF0IjoxNzI0Mzk2MzgyLCJleHAiOjE3MjQ0ODI3ODJ9.dbM44JdZg16MIxcd28P4KsuhUNG8bMMgxKxItmOh638"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"description": "Untuk service kehadiran ini dibuat untuk melakukan test api nya, untuk melihat pengajuan yang jelas dapat diajukan pada service perusahaan A atau B. disana sudah di buat koneksi dari service perusahaan dengan service kehadiran ini.  \nJadi fungsi yang ada pada service kehadiran ini sudah digunakan pada service perusahaan",
+			"auth": {
+				"type": "bearer",
+				"bearer": {}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
