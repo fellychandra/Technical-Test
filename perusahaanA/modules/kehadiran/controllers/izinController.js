@@ -33,6 +33,7 @@ export const createIzin = async (req, res) => {
 
     try {
         const response = await axios.post(process.env.KEHADIRAN_URL + 'kehadiran/izin', {
+            perusahaan: process.env.PERUSAHAAN,
             tanggalMulai,
             tanggalAkhir,
             alasan,
@@ -97,10 +98,12 @@ export const approvalIzin = async (req, res) => {
 };
 
 export const getAllIzinAdmin = async (req, res) => {
+    
     try {
-        const response = await axios.get(process.env.KEHADIRAN_URL + 'kehadiran/izin/approval', {
+        const response = await axios.get(process.env.KEHADIRAN_URL + `kehadiran/izin/approval`, {
             headers: {
-                'Authorization': req.headers.authorization
+                'Authorization': req.headers.authorization,
+                'X-Perusahaan': process.env.PERUSAHAAN
             }
         });
         res.status(StatusCodes.CREATED).json(response.data);

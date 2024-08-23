@@ -12,6 +12,8 @@ router.route('/absen').get(getAbsenAllByKaryawan).post(createAbsen);
 router.route('/izin').get(getIzinAllByKaryawan).post(createIzin);
 router.route('/cuti').get(getCutiAllByKaryawan).post(createCuti);
 
+router.route('/laporan').post(authorizedPermissions, getLaporanByKaryawan)
+
 router.route('/cuti/approval').get(authorizedPermissions, getCutiAllByKaryawan)
 router.route('/izin/approval').get(authorizedPermissions, getIzinAllByKaryawan)
 
@@ -34,7 +36,5 @@ router.route('/cuti/approval/:id').patch(authorizedPermissions, approvalCuti)
 router.route('/izin/approval/:id').patch(authorizedPermissions, approvalIzin)
 
 
-router.route('/laporan')
-    .post(authorizedPermissions, getLaporanByKaryawan)
 
 export default router;

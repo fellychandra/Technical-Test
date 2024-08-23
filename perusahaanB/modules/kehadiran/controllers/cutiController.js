@@ -16,6 +16,21 @@ export const getAllCuti = async (req, res) => {
     }
 };
 
+export const getAllCutiAdmin = async (req, res) => {
+    try {
+        
+        const response = await axios.get(process.env.KEHADIRAN_URL + `kehadiran/cuti/approval`, {
+            headers: {
+                'Authorization': req.headers.authorization,
+                'X-Perusahaan': process.env.PERUSAHAAN
+            }
+        });
+        res.status(StatusCodes.CREATED).json(response.data);
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+};
+
 export const getCuti = async (req, res) => {
 
     try {
@@ -35,6 +50,7 @@ export const createCuti = async (req, res) => {
 
     try {
         const response = await axios.post(process.env.KEHADIRAN_URL + 'kehadiran/cuti', {
+            perusahaan: process.env.PERUSAHAAN,
             tanggalMulai,
             tanggalAkhir,
             alasan,

@@ -4,12 +4,20 @@ import Izin from '../models/izinModel.js';
 
 
 export const getIzinAllByKaryawan = async (req, res) => {
-    let idKaryawan = {};
+    let filter = {};
+
+    console.log(req.query);
+
     if (req.user.role === 'Karyawan') {
-        idKaryawan = { karyawanId: req.user.userId };
+        filter.karyawanId = req.user.userId;
     }
+
+    if (req.headers['x-perusahaan']) {
+        filter.perusahaan = req.headers['x-perusahaan'];
+    }
+    
     try {
-        const izin = await Izin.find(idKaryawan);
+        const izin = await Izin.find(filter);
         res.status(StatusCodes.OK).json({ izin });
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });

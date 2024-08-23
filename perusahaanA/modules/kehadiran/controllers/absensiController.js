@@ -4,7 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 
 export const getAllAbsen = async (req, res) => {
     try {
-        const response = await axios.get(process.env.KEHADIRAN_URL + 'kehadiran/absen', {
+        const response = await axios.get(process.env.KEHADIRAN_URL + 'kehadiran/absen',  {
             headers: {
                 'Authorization': req.headers.authorization
             }
@@ -19,6 +19,7 @@ export const createAbsen = async (req, res) => {
 
     try {
         const response = await axios.post(process.env.KEHADIRAN_URL + 'kehadiran/absen', {
+            perusahaan: process.env.PERUSAHAAN,
             status: req.body.status,
             createdBy: req.user.userId
         }, {

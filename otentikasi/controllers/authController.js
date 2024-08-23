@@ -9,7 +9,9 @@ import { sendResetEmail } from '../utils/sendResetEmail.js';
 export const register = async (req, res) => {
     try {
         const isFirtsAccount = await User.countDocuments() === 0
-        req.body.role = isFirtsAccount ? 'Superuser' : 'Karyawan';
+        if (isFirtsAccount) {
+            req.body.role = 'Superuser';
+        }
 
         const hashedPassword = await hashPassword(req.body.password);
         req.body.password = hashedPassword;
@@ -83,9 +85,6 @@ export const verify = async (req, res) => {
 
 export const requestResetPassword = async (req, res) => {
     try {
-        // console.log(req.body);
-        // return
-
         const { email } = req.body;
         const user = await User.findOne({ email: email });
 
@@ -93,12 +92,14 @@ export const requestResetPassword = async (req, res) => {
             throw new NotFoundError('User not found');
         }
 
-        const token = crypto.randomBytes(20).toString('hex');
+        const pin = Math.floor(100000 + Math.random() * 900000).toString();
 
-        user.resetPasswordToken = token;
+        user.resetPasswordToken = pin;
         user.resetPasswordExpires = Date.now() + 3600000;
         await user.save();
-        await sendResetEmail(user.email, token);
+
+        // Send PIN via email
+        await sendResetEmail(user.email, pin);
 
         res.status(StatusCodes.OK).json({ message: 'Password reset email dikirim! Silakan Cek Email Anda!' });
     } catch (error) {
@@ -108,16 +109,15 @@ export const requestResetPassword = async (req, res) => {
 
 export const resetPassword = async (req, res) => {
     try {
-        const { token } = req.params;
-        const { password } = req.body;
+        const { password, pin } = req.body;
 
         const user = await User.findOne({
-            resetPasswordToken: token,
+            resetPasswordToken: pin,
             resetPasswordExpires: { $gt: Date.now() },
         });
 
         if (!user) {
-            throw new NotFoundError('Password reset token is invalid or has expired');
+            throw new NotFoundError('Password reset pin is invalid or has expired');
         }
 
         const hashedPassword = await hashPassword(password);

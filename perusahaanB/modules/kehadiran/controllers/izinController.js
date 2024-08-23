@@ -33,6 +33,7 @@ export const createIzin = async (req, res) => {
 
     try {
         const response = await axios.post(process.env.KEHADIRAN_URL + 'kehadiran/izin', {
+            perusahaan: process.env.PERUSAHAAN,
             tanggalMulai,
             tanggalAkhir,
             alasan,
@@ -75,6 +76,34 @@ export const deleteIzin = async (req, res) => {
         const response = await axios.delete(process.env.KEHADIRAN_URL + `kehadiran/izin/${req.params.id}`, {
             headers: {
                 'Authorization': req.headers.authorization
+            }
+        });
+        res.status(StatusCodes.CREATED).json(response.data);
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+};
+
+export const approvalIzin = async (req, res) => {
+    try {
+        const response = await axios.patch(process.env.KEHADIRAN_URL + `kehadiran/izin/approval/${req.params.id}`, req.body, {
+            headers: {
+                'Authorization': req.headers.authorization
+            }
+        });
+        res.status(StatusCodes.CREATED).json(response.data);
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+};
+
+export const getAllIzinAdmin = async (req, res) => {
+    
+    try {
+        const response = await axios.get(process.env.KEHADIRAN_URL + `kehadiran/izin/approval`, {
+            headers: {
+                'Authorization': req.headers.authorization,
+                'X-Perusahaan': process.env.PERUSAHAAN
             }
         });
         res.status(StatusCodes.CREATED).json(response.data);

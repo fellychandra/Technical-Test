@@ -6,12 +6,15 @@ const AbsensiSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        perusahaan: {
+            type: String,
+        },
         jam: {
             type: String,
             required: true,
             default: function () {
                 const now = new Date();
-                return now.toTimeString().split(' ')[0]; 
+                return now.toTimeString().split(' ')[0];
             },
         },
         tanggal: {

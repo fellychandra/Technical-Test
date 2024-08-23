@@ -83,20 +83,24 @@ import Izin from '../models/izinModel.js';
 // }
 
 export const getLaporanByKaryawan = async (req, res) => {
-    const { pegawaiId, startDate, endDate } = req.body;
+
+    const { pegawaiId, perusahaan, startDate, endDate } = req.body;
     try {
         const absen = await Absen.find({
             karyawanId: pegawaiId,
+            perusahaan: perusahaan,
             tanggal: { $gte: new Date(startDate), $lte: new Date(endDate) }
         });
         const izin = await Izin.find({
             karyawanId: pegawaiId,
+            perusahaan: perusahaan,
             tanggalMulai: { $gte: new Date(startDate), $lte: new Date(endDate) },
             tanggalAkhir: { $gte: new Date(startDate), $lte: new Date(endDate) }
 
         });
         const cuti = await Cuti.find({
             karyawanId: pegawaiId,
+            perusahaan: perusahaan,
             tanggalMulai: { $gte: new Date(startDate), $lte: new Date(endDate) },
             tanggalAkhir: { $gte: new Date(startDate), $lte: new Date(endDate) }
         });

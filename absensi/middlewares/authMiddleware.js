@@ -28,11 +28,10 @@ export const authenticateUser = async (req, res, next) => {
 }
 
 export const authorizedPermissions = (req, res, next) => {
-    if (req.user && req.user.role === "Superuser") {
+    if (req.user && req.user.role === "Superuser" || req.user && req.user.role === "HR") {
         next();
     } else {
         res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Authentication failed. Unauthorized access.' });
     }
 };
-
 

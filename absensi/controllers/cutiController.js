@@ -4,13 +4,20 @@ import Cuti from '../models/cutiModel.js';
 
 
 export const getCutiAllByKaryawan = async (req, res) => {
-    let idKaryawan = {};
+    let filter = {};
+
+    
     if (req.user.role === 'Karyawan') {
-        idKaryawan = { karyawanId: req.user.userId };
+        filter.karyawanId = req.user.userId;
+    }
+    console.log(req.headers['x-perusahaan']);
+    
+    if (req.headers['x-perusahaan']) {
+        filter.perusahaan = req.headers['x-perusahaan'];
     }
 
     try {
-        const cuti = await Cuti.find(idKaryawan);
+        const cuti = await Cuti.find(filter);
         res.status(StatusCodes.OK).json({ cuti });
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });

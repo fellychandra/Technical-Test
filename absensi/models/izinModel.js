@@ -6,6 +6,9 @@ const IzinSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        perusahaan: {
+            type: String,
+        },
         tanggalPengajuan: {
             type: Date,
             required: true,

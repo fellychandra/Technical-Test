@@ -44,12 +44,12 @@ export const getAllKaryawans = async (req, res) => {
 
 export const createKaryawan = async (req, res) => {
     req.body.createdBy = req.user.userId;
-    const { nik, nip, name, tempatLahir, tanggalLahir, noHp, createdBy, username, email, password = 'tampanbanget' } = req.body;
+    const { nik, nip, name, tempatLahir, tanggalLahir, noHp, createdBy, username, email, password = 'tampanbanget', role } = req.body;
     const session = await mongoose.startSession();
     session.startTransaction();
 
     try {
-        const user = await axios.post(process.env.AUTENTIKASI_URL + 'auth/register', { username, email, password });
+        const user = await axios.post(process.env.AUTENTIKASI_URL + 'auth/register', { username, email, role, password });
         const karyawan = await Karyawan.create({ nik, nip, name, tempatLahir, tanggalLahir, noHp, userId: user.data.user._id, createdBy });
 
         await session.commitTransaction();
@@ -84,6 +84,8 @@ export const updateKaryawan = async (req, res) => {
 
 export const deleteKaryawan = async (req, res) => {
     try {
+        const karyawan = await Karyawan.findById(req.params.id);
+        const user = await axios.delete(process.env.AUTENTIKASI_URL + `auth/${karyawan.userId}`);
         const removedKaryawan = await Karyawan.findByIdAndDelete(req.params.id);
         res.status(StatusCodes.OK).json({ msg: 'karyawan deleted', karyawan: removedKaryawan });
     } catch (error) {

@@ -9,6 +9,6 @@ router.post('/verify', verify);
 router.get('/logout', logout);
 router.delete('/:id', deleteUser);
 router.post('/request-reset-password', requestResetPassword);
-router.post('/reset-password/:token', resetPassword);
+router.post('/reset-password', resetPassword);
 
 export default router;
