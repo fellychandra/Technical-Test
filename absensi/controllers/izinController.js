@@ -1,47 +1,20 @@
 import { StatusCodes } from "http-status-codes";
 
-import Absen from '../models/absensiModel.js';
-
-export const createAbsen = async (req, res) => {
-    req.body.karyawanId = req.user.userId;
-    try {
-        const absen = await Absen.create(req.body);
-        res.status(StatusCodes.CREATED).json({ message: "absen berhasil" });
-    } catch (error) {
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
-    }
-};
-
-export const getAbsen = async (req, res) => {
-    try {
-        const absen = await Absen.findById(req.params.id);
-        res.status(StatusCodes.OK).json({ absen });
-    } catch (error) {
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
-    }
-};
-
-export const updateAbsen = async (req, res) => {
-    try {
-        const updatedAbsen = await Absen.findByIdAndUpdate(req.params.id, req.body, {
-            new: true,
-        });
-        res.status(StatusCodes.OK).json({ msg: 'Absen modified', absen: updatedAbsen });
-    } catch (error) {
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
-    }
-};
-
-export const deleteAbsen = async (req, res) => {
-    try {
-        const removedAbsen = await Absen.findByIdAndDelete(req.params.id);
-        res.status(StatusCodes.OK).json({ msg: 'Absen deleted', absen: removedAbsen });
-    } catch (error) {
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
-    }
-};
-
 import Izin from '../models/izinModel.js';
+
+
+export const getIzinAllByKaryawan = async (req, res) => {
+    let idKaryawan = {};
+    if (req.user.role === 'Karyawan') {
+        idKaryawan = { karyawanId: req.user.userId };
+    }
+    try {
+        const izin = await Izin.find(idKaryawan);
+        res.status(StatusCodes.OK).json({ izin });
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+}
 
 export const createIzin = async (req, res) => {
     req.body.karyawanId = req.user.userId;
@@ -63,6 +36,18 @@ export const getIzin = async (req, res) => {
 };
 
 export const updateIzin = async (req, res) => {
+    const { tanggalMulai, tanggalAkhir, alasan } = req.body
+    try {
+        const updatedIzin = await Izin.findByIdAndUpdate(req.params.id, { tanggalMulai, tanggalAkhir, alasan, alasan }, {
+            new: true,
+        });
+        res.status(StatusCodes.OK).json({ msg: 'izin modified', izin: updatedIzin });
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+};
+
+export const approvalIzin = async (req, res) => {
     try {
         const updatedIzin = await Izin.findByIdAndUpdate(req.params.id, req.body, {
             new: true,

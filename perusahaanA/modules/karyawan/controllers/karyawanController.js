@@ -84,6 +84,8 @@ export const updateKaryawan = async (req, res) => {
 
 export const deleteKaryawan = async (req, res) => {
     try {
+        const karyawan = await Karyawan.findById(req.params.id);
+        const user = await axios.delete(process.env.AUTENTIKASI_URL + `auth/${karyawan.userId}`);
         const removedKaryawan = await Karyawan.findByIdAndDelete(req.params.id);
         res.status(StatusCodes.OK).json({ msg: 'karyawan deleted', karyawan: removedKaryawan });
     } catch (error) {

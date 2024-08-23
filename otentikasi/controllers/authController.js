@@ -134,4 +134,13 @@ export const resetPassword = async (req, res) => {
     }
 }
 
+export const deleteUser = async (req, res) => {
+    try {
+        const removedUser = await User.findByIdAndDelete(req.params.id);
+        res.status(StatusCodes.OK).json({ msg: 'User deleted', User: removedUser });
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+};
+
 

@@ -7,11 +7,12 @@ import helmet from 'helmet';
 
 
 // middlewares
-import { authenticateUser } from './modules/karyawan/middlewares/authMiddleware.js';
+import { authenticateUser } from './middlewares/authMiddleware.js';
 
 
 // routes
 import karyawanRouter from "./modules/karyawan/routes/karyawanRouter.js"
+import kehadiranRouter from "./modules/kehadiran/routes/kehadiranRouter.js"
 
 dotenv.config()
 const app = express()
@@ -29,6 +30,7 @@ app.get('/api/v1/test', (req, res) => {
 })
 
 app.use('/api/v1/karyawan', authenticateUser, karyawanRouter);
+app.use('/api/v1/kehadiran', authenticateUser, kehadiranRouter);
 
 app.use('*', (req, res) => {
     res.status(404).json({ msg: 'not found' });

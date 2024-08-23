@@ -1,28 +1,40 @@
 import { Router } from 'express'
 const router = Router();
 
-import { createAbsen } from '../controllers/absensiController.js'
-import { createIzin, getIzin, updateIzin } from '../controllers/izinController.js'
-import { createCuti, getCuti, updateCuti } from '../controllers/cutiController.js'
+import { createAbsen, deleteAbsen, getAbsen, getAbsenAllByKaryawan } from '../controllers/absensiController.js'
+import { approvalIzin, createIzin, deleteIzin, getIzin, getIzinAllByKaryawan, updateIzin } from '../controllers/izinController.js'
+import { approvalCuti, createCuti, deleteCuti, getCuti, getCutiAllByKaryawan, updateCuti } from '../controllers/cutiController.js'
+import { authorizedPermissions } from '../middlewares/authMiddleware.js';
+import { getLaporanByKaryawan } from '../controllers/laporanController.js';
 
 
-router.route('/absen').post(createAbsen);
-router.route('/izin').post(createIzin);
-router.route('/cuti').post(createCuti);
+router.route('/absen').get(getAbsenAllByKaryawan).post(createAbsen);
+router.route('/izin').get(getIzinAllByKaryawan).post(createIzin);
+router.route('/cuti').get(getCutiAllByKaryawan).post(createCuti);
+
+router.route('/cuti/approval').get(authorizedPermissions, getCutiAllByKaryawan)
+router.route('/izin/approval').get(authorizedPermissions, getIzinAllByKaryawan)
+
 
 router.route('/absen/:id')
-    .get()
-    .patch()
-    .delete();
+    .get(getAbsen)
+    .delete(deleteAbsen);
 
 router.route('/izin/:id')
     .get(getIzin)
     .patch(updateIzin)
-    .delete();
+    .delete(deleteIzin);
 
 router.route('/cuti/:id')
     .get(getCuti)
     .patch(updateCuti)
-    .delete();
+    .delete(deleteCuti);
+
+router.route('/cuti/approval/:id').patch(authorizedPermissions, approvalCuti)
+router.route('/izin/approval/:id').patch(authorizedPermissions, approvalIzin)
+
+
+router.route('/laporan')
+    .post(authorizedPermissions, getLaporanByKaryawan)
 
 export default router;

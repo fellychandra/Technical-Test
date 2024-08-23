@@ -16,6 +16,7 @@ export const getAllAbsen = async (req, res) => {
 };
 
 export const createAbsen = async (req, res) => {
+
     try {
         const response = await axios.post(process.env.KEHADIRAN_URL + 'kehadiran/absen', {
             status: req.body.status,

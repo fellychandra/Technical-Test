@@ -2,6 +2,15 @@ import { StatusCodes } from "http-status-codes";
 
 import Absen from '../models/absensiModel.js';
 
+export const getAbsenAllByKaryawan = async (req, res) => {    
+    try {
+        const absen = await Absen.find({ karyawanId: req.user.userId });
+        res.status(StatusCodes.OK).json({ absen });
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+};
+
 export const createAbsen = async (req, res) => {
     req.body.karyawanId = req.user.userId;
     try {
@@ -14,7 +23,7 @@ export const createAbsen = async (req, res) => {
 
 export const getAbsen = async (req, res) => {
     try {
-        const absen = await Absen.findById(req.params.id);
+        const absen = await Absen.find({ karyawanId: req.params.id });
         res.status(StatusCodes.OK).json({ absen });
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });

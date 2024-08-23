@@ -8,7 +8,7 @@ import {
     updateKaryawan,
     deleteKaryawan,
 } from '../controllers/karyawanController.js';
-import { authorizedPermissions } from '../middlewares/authMiddleware.js';
+import { authorizedPermissions } from '../../../middlewares/authMiddleware.js';
 
 
 router.route('/').get(authorizedPermissions, getAllKaryawans).post(authorizedPermissions, createKaryawan);
